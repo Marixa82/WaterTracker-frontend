@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import {Container, Button } from 'react-bootstrap'
 import HomePage from './components/HomePage'
-import SignInPage from './components/sign-in-page'
+import SignInPage from './components/Sign-In-page'
 
 function App() {
   const [count, setCount] = useState(0)
