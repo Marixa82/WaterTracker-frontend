@@ -3,8 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import {Container, Button } from 'react-bootstrap'
-import HomePage from './components/HomePage'
-import SignInPage from './components/Sign-In-page'
+// import HomePage from './components/pages/HomePage'
+// import SignInPage from './components/pages/Sign-In-page'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,8 +30,8 @@ function App() {
       </div>
       <Container>
       <h1>Hello, React-Bootstrap with Vite!</h1>
-      <SignInPage/>
-      <HomePage/>
+      {/* <SignInPage/>
+      <HomePage/> */}
 
       <div className="row">
         <div className="col-6">

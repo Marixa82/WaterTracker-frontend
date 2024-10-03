@@ -6,6 +6,16 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  --color-wite: #ffffff;
+  --color-black: #2f2f2f;
+  --color-blue: #407bff;
+  --color-light-secondary: #ECF2FF;
+  --color-red: #EF5050;
+  --color-blue-secondary: #9EBBFF;
+  --color-orange: #FF9D43;
+  --color-light-blue: #D7E3FF;
+
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
