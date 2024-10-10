@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.2.8",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
@@ -20,10 +21,12 @@
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/node": "^22.7.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
