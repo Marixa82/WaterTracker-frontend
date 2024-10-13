@@ -22,7 +22,7 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {},
-    extraReducers: builder => {
+    extraReducers: (builder) => {
         builder
             .addCase(authOperations.signUp.fulfilled, (state, action) => {
                 state.userData = action.payload.userData;
