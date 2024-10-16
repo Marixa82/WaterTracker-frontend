@@ -1,4 +1,4 @@
-import { RootState } from "..";
+import { RootState } from "../store";
 
 const selectUserIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
 const selectUserName = (state: RootState) => state.auth.userData.name;
