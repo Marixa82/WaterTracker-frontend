@@ -1,59 +1,47 @@
-import { instance, token } from "../Api/api";
+import { handleAsyncError, instance, token } from "../Api/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Credentials, SignInResponse } from "../types";
+import { Credentials, CurrentUser, SignInResponse } from "../types";
 
 
 //Registration user//
-const signUp = createAsyncThunk<
-SignInResponse,        // Тип успішного результату
-Credentials,           // Тип аргументів (credentials)
-{
-  rejectValue: string; // Тип помилки
-}
->('auth/singUp', async (credentials, thunkAPI) => {
+const signUp = createAsyncThunk<SignInResponse,Credentials,{rejectValue: string;}>('auth/singUp', async (credentials, thunkAPI) => {
     try {
         const { data } = await instance.post(`/users/signUp`, credentials);
         token.set(data.token);
         console.log('credentials', data)
         return data;
-    } catch  {
-        // const e = error as AxiosError;
-        return thunkAPI.rejectWithValue('Failed to sign in');}
-});
+    } catch (error) {
+        return handleAsyncError(error, thunkAPI);
+        
+}});
 
 //LoginIn user//
-const signIn = createAsyncThunk<
-SignInResponse,        // Тип успішного результату
-Credentials,           // Тип аргументів (credentials)
-{
-  rejectValue: string; // Тип помилки
-}
->('auth/signIn', async (credentials, thunkAPI) => {
-    try {
-        const { data } = await instance.post(`/users/signIn`, credentials);
+const signIn = createAsyncThunk<SignInResponse,Credentials,{rejectValue: string;}>('auth/signIn', async (credentials, thunkAPI) => {
+    
+        const response = await instance.post(`/users/signIn`, credentials);
+        const {data} = response;
         token.set(data.token);
+        if (!data) {
+        return thunkAPI.rejectWithValue('message'); }
         return data;
-    } catch (e) {
-        
-        return thunkAPI.rejectWithValue(e.message); 
     }
-});
+);
 
 //LogOut user//
 const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
     try {
         await instance.post(`/users/logOut`);
         token.unset();
-    } catch (e) {
-       
-        return thunkAPI.rejectWithValue(e.message);
-    }
+    } catch (error) {
+        return handleAsyncError(error, thunkAPI);
+        
+}
 });
 
 //Back user from LocalStorage - refresh//
 
-const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
+const fetchCurrentUser = createAsyncThunk<CurrentUser,void,{rejectValue: string;}>('auth/refresh', async (_, thunkAPI) => {
+    const state = thunkAPI.getState()as { auth: { token: string | null }} ;
     const persistedToken = state.auth.token;
 
     if (!persistedToken) {
@@ -63,7 +51,10 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
     try {
         const { data } = await instance.get('/users/current');
         return data;
-    } catch (error) { }
+    } catch (error) {
+        return handleAsyncError(error, thunkAPI);
+        
+}
 })
 
 
