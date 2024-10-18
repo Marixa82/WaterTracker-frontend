@@ -1,5 +1,5 @@
 import React from "react";
-import { UseAppDispatch } from "../../../hook";
+import { UseAppDispatch } from "../../../hooks/hook";
 import { authOperations } from '../../../redux/auth'
 
 
