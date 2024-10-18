@@ -8,14 +8,19 @@ interface BookListProps {
   books: Book[];
 }
 
-const BookList = ({ books }: BookListProps)=>(
-    <ul>
-      <h1>BookList</h1>
-      {books.map(book => (
-        <li key={book.id}> {book.name}</li>
-      ))}
-    </ul>
+const BookListPage: React.FC<BookListProps> = ({ books }) => {
+  return (
+    <div>
+      <h1>Book List</h1>
+      <ul>
+        {books.map(book => (
+          <li key={book.id}>
+            {book.name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
+};
 
-
-export default BookList;
+export default BookListPage;
