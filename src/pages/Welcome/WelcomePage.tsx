@@ -1,11 +1,12 @@
-import BookList from "../../components/BookList";
-import favouriteBooks from "../../components/FavouriteBooks";
+import TrackerBenefitsList from "../../components/Welcome/TrackerBenefitsList";
+import Welcome from "../../components/Welcome/Welcome";
 
 const WelcomePage = () =>{
     return(
         <div>
-      <h1>Welcome Page</h1>
-      <BookList books={favouriteBooks}/>
+      <Welcome trackerBenefitsList={<TrackerBenefitsList/>} />
+       
+      
     </div>
     )
 }
