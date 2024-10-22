@@ -1,14 +1,17 @@
 
+import { Container } from 'react-bootstrap';
 import TrackerBenefits from '../TrackerBenefits';
 
 
 
 function TrackerBenefitsList() {
   return (
-    <>
-      <h1>TrackerBenefitsList</h1>
-     <TrackerBenefits/>
-    </>
+    <Container>
+      <div className="d-flex align-items-wrap">
+        <h1 className='mb-2,5'>TrackerBenefitsList</h1>
+       <TrackerBenefits/>
+      </div>
+    </Container>
   );
 }
 
