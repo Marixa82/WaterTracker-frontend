@@ -1,24 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
-import {Container, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import WelcomePage from './pages/Welcome/WelcomePage'
 // import HomePage from './components/pages/HomePage'
 // import SignInPage from './components/pages/Sign-In-page'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
+      {/* <div >
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+      
       </div>
       <h1>Vite + React</h1>
       <div className="card">
@@ -29,8 +30,8 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <Container>
-      <h1>Hello, React-Bootstrap with Vite!</h1>
+      <div className='d-flex flex-column container-sm'> */}
+      
       <WelcomePage/>
 
       <div className="row">
@@ -55,10 +56,8 @@ function App() {
       </div>
       
       <Button variant="primary">Click me</Button>
-    </Container>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+   
+      
     </>
   )
 }
