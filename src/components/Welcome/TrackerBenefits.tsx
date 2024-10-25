@@ -8,6 +8,8 @@ const TrackerBenefits: React.FC = () =>{
 
     <div className=" d-flex flex-wrap container-sm p-0">
       <div className="card-border-0" >
+      <h1>WaterСonsumptionTracker</h1>
+      <h2>Record daily water intake and track</h2>
       <h3 className='mb-2,5'>TrackerBenefitsList</h3>
           <ul className="p-0">
             <li className="d-flex align-items-center mb-3">
