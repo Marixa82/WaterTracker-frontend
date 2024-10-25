@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UseAppSelector } from "../hooks/hook";
+import { useAppSelector } from "../hooks/hook";
 import { authSelectors } from "../redux/auth";
 
 const useAuthRedirect = (redirectTo: string = "/login") => {
-  const authenticated = UseAppSelector(authSelectors.selectUserIsLoggedIn);
+  const authenticated = useAppSelector(authSelectors.selectUserIsLoggedIn);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,3 +17,15 @@ const useAuthRedirect = (redirectTo: string = "/login") => {
 };
 
 export default useAuthRedirect;
+
+export const useAuth = () => {
+  const isLoggedIn = useAppSelector(authSelectors.selectUserIsLoggedIn);
+  const isRefreshing = useAppSelector(authSelectors.selectUserRefreshing);
+  const user = useAppSelector(authSelectors.selectUserName);
+
+  return {
+      isLoggedIn,
+      isRefreshing,
+      user,
+  };
+};
