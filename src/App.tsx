@@ -2,36 +2,17 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import './App.styled'
+// import { BackgroundContainer } from './App.styled'
 import { Button } from 'react-bootstrap'
 import WelcomePage from './pages/Welcome/WelcomePage'
 // import HomePage from './components/pages/HomePage'
 // import SignInPage from './components/pages/Sign-In-page'
 
-function App() {
-  // const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
+  
   return (
-    <>
-      {/* <div >
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <div className='d-flex flex-column container-sm'> */}
-      
+    < >      
       <WelcomePage/>
 
       <div className="row">
