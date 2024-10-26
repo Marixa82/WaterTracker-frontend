@@ -1,3 +1,12 @@
+@import 'normalize.css';
+  *,
+  :before,
+  :after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: currentColor;
+  }
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,15 +24,7 @@
   --color-orange: #FF9D43;
   --color-light-blue: #D7E3FF;
 }
-  /* @import-normalize;
-  *,
-  :before,
-  :after {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    border-color: currentColor;
-  } */
+  
 
   /* font-synthesis: none;
   text-rendering: optimizeLegibility;
