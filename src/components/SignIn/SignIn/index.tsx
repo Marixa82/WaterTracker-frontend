@@ -1,8 +1,8 @@
-import { UseAppDispatch } from '../../../hooks/hook';
+import { useAppDispatch } from '../../../hooks/hook';
 import { authOperations } from '../../../redux/auth'
 
 const SignForm: React.FC = () => {
-  const dispatch = UseAppDispatch();
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
