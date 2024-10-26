@@ -3,10 +3,10 @@
 
 interface HeaderProps {
   logoUrl: string;         
-  registrationUrl: string; 
+  
 }
 
-function Header({ logoUrl, registrationUrl }: HeaderProps) {
+function Header({ logoUrl }: HeaderProps) {
   return (
     <>
       <nav className="navbar navbar-light bg-light">
@@ -15,9 +15,7 @@ function Header({ logoUrl, registrationUrl }: HeaderProps) {
             <img src={logoUrl} alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
             Мій сайт
           </a>
-          <div className="d-flex">
-            <a href={registrationUrl} className="navbar-brand" href="/signin">Реєстрація</a>
-          </div>
+          
         </div>
       </nav>
     </>
