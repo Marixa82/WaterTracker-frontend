@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 import PrivateRoute from "../Routes/PrivateRoute";
 import RestrictedRoute from "../Routes/RestrictedRoute";
 import favouriteBooks from "../FavouriteBooks";
-import { HOME_ROUTE,WATER_ROUTE,LOGIN_ROUTE,REGISTER_ROUTE, HomePage, SignInPage, SignUpPage, BookListPage } from "./routes";
+import { HOME_ROUTE,WATER_ROUTE,LOGIN_ROUTE,REGISTER_ROUTE, SignInPage, SignUpPage, BookListPage } from "./routes";
+import WelcomePage from "../../pages/Welcome/WelcomePage";
 
 
 
@@ -17,7 +18,7 @@ interface Route {
 export const appRoutes: Route[] = [
     {
         path: HOME_ROUTE,
-        element: <HomePage />, 
+        element: <WelcomePage />, 
     },
     {
         path: WATER_ROUTE,
