@@ -7,7 +7,7 @@ export const AuthNav: React.FC = () =>{
    return(
     <div>
 <NavLink to={LOGIN_ROUTE}>Login</NavLink>
-<NavLink to={REGISTER_ROUTE}>Login</NavLink>
+<NavLink to={REGISTER_ROUTE}>Register</NavLink>
     </div>
    )
 };
