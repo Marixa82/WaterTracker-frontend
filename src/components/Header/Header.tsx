@@ -1,23 +1,17 @@
+import Logo from "../Logo";
+import { AuthNav } from "../NavigationApi/AuthNav";
 
 
 
-interface HeaderProps {
-  logoUrl: string;         
-  
-}
 
-function Header({ logoUrl }: HeaderProps) {
+
+function Header() {
   return (
     <>
-      <nav className="navbar navbar-light bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <img src={logoUrl} alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
-            Мій сайт
-          </a>
-          
-        </div>
-      </nav>
+      <nav className="navbar navbar-light bg-light d-flex justify-content-between align-items-center p-3">
+      <Logo/>
+      <AuthNav/>
+    </nav>
     </>
   );
 }
