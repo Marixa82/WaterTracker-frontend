@@ -1,4 +1,5 @@
 
+
 interface WelcomeProps {
   trackerBenefitsList: JSX.Element;
   whyDrinkWater: JSX.Element;
@@ -6,13 +7,15 @@ interface WelcomeProps {
 
 function Welcome({ trackerBenefitsList, whyDrinkWater }: WelcomeProps) {
   return (
-    < div className="row">
-      <div className="col-12 col-md-6">
-        {trackerBenefitsList}
-        </div>
+    <div>
+      < div className="row">
         <div className="col-12 col-md-6">
-        {whyDrinkWater}
-
+          {trackerBenefitsList}
+          </div>
+          <div className="col-12 col-md-6">
+          {whyDrinkWater}
+  
+        </div>
       </div>
     </div>
   );
