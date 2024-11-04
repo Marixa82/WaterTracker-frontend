@@ -1,8 +1,4 @@
-// import React, { ReactNode } from 'react';
 
-// interface LoaderProps {
-//   children: ReactNode;
-// }
 
 const Loader:React.FC = () => {
   return (
