@@ -5,7 +5,7 @@ import useAuthRedirect from "../../hooks/useNavigationHook";
 
 interface RestrictedRouteProps {
     children: ReactNode;
-     
+    redirectTo?: string;
   }
   
   const RestrictedRoute = ({ children }: RestrictedRouteProps) => {
