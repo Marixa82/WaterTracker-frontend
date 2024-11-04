@@ -1,15 +1,26 @@
-import { handleAsyncError, instance, token } from "../Api/api";
+import { handleAsyncError, instance } from "../Api/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {  UserWaterResponse, UserToken } from "../types";
 
 const fetchWaterData = createAsyncThunk<UserWaterResponse, UserToken,{rejectValue: string}>(
     "waterData/fetchAll",
-    async (userToken, thunkAPI) => {
+    async (_, thunkAPI) => {
         try {
-            token.set(userToken.token);
-            const response = await instance.get(`waterData/${userToken.userId}`);
+            // token.set(userToken.token);
+            const response = await instance.get(`waterData`);
             return response.data;
             
+        } catch (error) {
+            return handleAsyncError(error, thunkAPI);
+        }
+    }
+);
+const changeWaterData = createAsyncThunk<UserWaterResponse,UserWaterResponse ,{rejectValue: string}>(
+    "waterData/changeWaterData",
+    async (items, thunkAPI) => {
+        try {
+            const response = await instance.post("waterData", items);
+            return response.data;
         } catch (error) {
             return handleAsyncError(error, thunkAPI);
         }
@@ -70,5 +81,5 @@ const fetchWaterData = createAsyncThunk<UserWaterResponse, UserToken,{rejectValu
 // })
 
 
-const waterOperations = {  fetchWaterData };
+const waterOperations = {  fetchWaterData, changeWaterData };
 export default waterOperations;
