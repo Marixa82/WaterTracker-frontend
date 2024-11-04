@@ -9,7 +9,7 @@ import {
     REGISTER,
 } from 'redux-persist';
 import rootReducer from '../root/rootReduser';
-
+export type RootState = ReturnType<typeof rootReducer>;
 export const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
