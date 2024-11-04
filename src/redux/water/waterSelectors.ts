@@ -1,4 +1,4 @@
-import { RootState } from "../root/rootReduser";
+import { RootState } from "../store";
 
 
 const selectWaterData = (state: RootState) => state.water.waterData;
