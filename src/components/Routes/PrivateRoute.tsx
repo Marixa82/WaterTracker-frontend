@@ -5,7 +5,7 @@ import useAuthRedirect from "../../hooks/useNavigationHook";
 
 interface PrivateRouteProps {
     children: ReactNode;
-    
+    redirectTo?: string;
   }
   
   const PrivateRoute = ({ children }: PrivateRouteProps) => {
