@@ -22,8 +22,6 @@ export interface UserToken {
   token: string;
 }
 export interface UserWaterResponse {
-  token: string;
-  waterDate: {
     day: string;
     month: string;
     year: string;
@@ -32,4 +30,15 @@ export interface UserWaterResponse {
     waterRateForThisDay: number;
     owner: string;
   };
-}
+
+// export interface UserWaterChangeRequest {
+//   waterData: {
+//     day: string;
+//     month: string;
+//     year: string;
+//     time: string;
+//     amount: number;
+//     waterRateForThisDay: number;
+//     owner: string;
+//   };
+// }
