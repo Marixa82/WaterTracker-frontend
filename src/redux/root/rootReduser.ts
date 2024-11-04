@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     water: waterReducer,
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+
 export default rootReducer;
 
 
