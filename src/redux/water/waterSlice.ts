@@ -1,21 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import waterOperations from "./waterOperations";
-import { UserWaterResponse } from "../types";
+import { WaterMonthData, WaterTodayData } from "../types";
 
 type WaterDataState = {
-    waterData: UserWaterResponse;
+    waterMonthData: WaterMonthData;
+    waterTodayData: WaterTodayData;
     isLoading: boolean;
     error: string | null;
 };
 const initialState: WaterDataState = {
-    waterData: {
-        day: '',
-        month: '',
-        year: '',
-        time: '',
-        amount: 0,
-        waterRateForThisDay: 2000,
-        owner: '',
+    waterMonthData: {
+        waterMonth: {},
+    },
+    waterTodayData:{
+        waterList: [],
     },
     isLoading: false,
     error: null,
@@ -26,13 +24,25 @@ const waterSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(waterOperations.fetchWaterData.fulfilled, (state, action) => {
-                state.waterData = action.payload;
-            }).addCase(waterOperations.changeWaterData.fulfilled, (state, action)=>{
-                state.waterData = {
-                    ...state.waterData,
-                    ...action.payload, // action.payload містить нові значення для waterData
-                };
+            .addCase(waterOperations.addWaterData.fulfilled, (state, action)=>{
+            state.waterTodayData.waterList.push(action.payload)
+        })
+            .addCase(waterOperations.editWaterData.fulfilled, (state, action)=>{
+                state.waterTodayData.waterList = state.waterTodayData.waterList.map(item => 
+                    item.id === action.payload.id ? action.payload : item
+                );
+                 
+            })
+            .addCase(waterOperations.deleteWaterData.fulfilled, (state, action)=>{
+                state.waterTodayData.waterList = state.waterTodayData.waterList.filter(item => 
+                    item.id !== action.payload);
+                 
+            })
+            .addCase(waterOperations.getWaterMonthData.fulfilled, (state, action) => {
+                state.waterMonthData.waterMonth = action.payload;
+            })
+            .addCase(waterOperations.getWaterTodayData.fulfilled, (state, action) => {
+                state.waterTodayData.waterList = action.payload;
             })
             .addMatcher(action => action.type.endsWith('/pending'),
             (state) => {
