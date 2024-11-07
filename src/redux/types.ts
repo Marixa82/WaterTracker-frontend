@@ -21,7 +21,7 @@ export interface UserToken {
   userId: string;
   token: string;
 }
-export interface UserWaterResponse {
+ export interface UserWaterMonthResponse {
     day: string;
     month: string;
     year: string;
@@ -30,15 +30,18 @@ export interface UserWaterResponse {
     waterRateForThisDay: number;
     owner: string;
   };
+  export interface WaterMonthData {
+    waterMonth: Partial<UserWaterMonthResponse>;
+  };
 
-// export interface UserWaterChangeRequest {
-//   waterData: {
-//     day: string;
-//     month: string;
-//     year: string;
-//     time: string;
-//     amount: number;
-//     waterRateForThisDay: number;
-//     owner: string;
-//   };
-// }
+export interface UserWaterTodayResponse {
+    
+    id: string;
+    time: string;
+    amount: number;
+    owner: string;
+  
+  };
+  export interface WaterTodayData {
+    waterList: UserWaterTodayResponse[]; 
+};
