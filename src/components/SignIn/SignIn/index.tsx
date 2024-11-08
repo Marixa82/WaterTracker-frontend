@@ -1,16 +1,21 @@
 import { useAppDispatch } from '../../../hooks/hook';
-import { authOperations } from '../../../redux/auth'
+import { authOperations } from '../../../redux/auth';
 
+
+interface FormData {
+  email: string;
+  password: string;
+}
 const SignForm: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const email = (form.elements.namedItem('userEmail') as HTMLInputElement).value;
-    const password = (form.elements.namedItem('userPassword') as HTMLInputElement).value;
+    // const form = e.currentTarget;
+    const email = (e.currentTarget.elements.namedItem('userEmail') as HTMLInputElement).value;
+    const password = (e.currentTarget.elements.namedItem('userPassword') as HTMLInputElement).value;
 
-    const formData = {
+    const formData: FormData = {
       email,
       password,
     };
@@ -22,12 +27,12 @@ const SignForm: React.FC = () => {
     <form onSubmit={handleSubmit} autoComplete="off">
       <label>
         <span>
-          <input type="email" name="userEmail" placeholder="Enter your email..." required />
+          <input type="email" name='userEmail' placeholder="Enter your email..." required />
         </span>
       </label>
       <label>
         <span>
-          <input type="password" name="userPassword" placeholder="Enter your password..." required minLength={7} />
+          <input type="password" name='userPassword' placeholder="Enter your password..." required minLength={7} />
         </span>
       </label>
       <button type="submit">Login</button>
@@ -37,19 +42,4 @@ const SignForm: React.FC = () => {
 
 export default SignForm;
 
-// import  { ReactNode } from 'react';
 
-// interface SignInProps {
-//   children: ReactNode;
-// }
-
-// function SignIn({ children }: SignInProps) {
-//   return (
-//     <>
-//       <h1>SignIn</h1>
-//       {children}
-//     </>
-//   );
-// }
-
-// export default SignIn;
