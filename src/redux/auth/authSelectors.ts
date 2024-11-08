@@ -1,7 +1,7 @@
 import { RootState } from "../store";
 
 const selectUserIsLoggedIn = (state: RootState) => state.auth.isLoggedIn;
-const selectUserName = (state: RootState) => state.auth.userData.name;
+const selectUserName = (state: RootState) => state.auth.userData;
 const selectUserToken = (state: RootState) => state.auth.token;
 const selectUserRefreshing = (state: RootState) => state.auth.isRefreshing;
 // const selectUserAuthenticated = state => state.auth.authenticated;
