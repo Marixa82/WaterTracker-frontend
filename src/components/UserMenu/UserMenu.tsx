@@ -1,5 +1,3 @@
-// import React, { ReactNode } from 'react';
-// import React from 'react';
 import { useAppDispatch,useAppSelector } from '../../hooks/hook';
 import { authOperations, authSelectors } from '../../redux/auth';
 
@@ -11,7 +9,7 @@ export const UserMenu: React.FC = () => {
   return (
     <>
       <h1>UserMenu</h1>
-      <span>Hello,{userData}</span>
+      <span>Hello,{userData.name || userData.email}</span>
         <button onClick={() => dispatch(authOperations.logOut())}>Log Out</button>
     </>
   );
