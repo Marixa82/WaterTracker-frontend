@@ -1,19 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import authOperations from './authOperations';
+import { UserData } from "../types";
 
-type UserData = {
-    email: string;
-    // password: string;
-    name?: string; // Опціональне поле, якщо використовується для реєстрації
-  }
+
   type UserDataState = {
-    userData: UserData,
-    token: string | null,
+  userData: UserData,
+  token: string | null,
   isLoggedIn: boolean,
   isRefreshing: boolean,
   }
 const initialState: UserDataState = {
-    userData: { name: '', email: '' },
+    userData: { 
+        email: '',
+        name: '',
+        gender: '',
+        avatarURL: '',
+        waterRate: 0,
+        verify: '', 
+    },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
@@ -24,11 +28,9 @@ const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(authOperations.signUp.fulfilled, (state, action) => {
-                state.userData = action.payload.userData;
-                state.token = action.payload.token;
+            .addCase(authOperations.signUp.fulfilled, (state)=>{
                 state.isLoggedIn = true;
-            })
+            })            
             .addCase(authOperations.signIn.fulfilled, (state, action) => {
                 state.userData = action.payload.userData;
                 state.token = action.payload.token;
