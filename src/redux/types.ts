@@ -1,8 +1,17 @@
 
+export interface UserData  {
+  email: string;
+  name: string;
+  gender?: string;
+  avatarURL?: string;
+  waterRate?: number;
+  verify?: string; 
+}
 export interface Credentials {
     email: string;
     password: string;
-    name?: string; // Опціональне поле, якщо використовується для реєстрації
+    name?: string;
+     
   }
   
   export interface SignInResponse {
@@ -10,6 +19,7 @@ export interface Credentials {
     userData: {
       name: string;
       email: string;
+      
     };
   }
   export interface CurrentUser {
