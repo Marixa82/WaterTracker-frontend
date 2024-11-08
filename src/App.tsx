@@ -1,14 +1,15 @@
-// import { Button } from 'react-bootstrap'
-// import WelcomePage from './pages/Welcome/WelcomePage'
+
 import { useAppDispatch } from './hooks/hook'
 import { useAuth } from './hooks/useNavigationHook'
 import { Suspense,useEffect } from 'react'
 import { authOperations } from './redux/auth'
-import Container from './components/Container/Container'
 import { AppBar } from './components/NavigationApi/AppBar'
 import Loader from './components/Loader/Loader'
 import { Route, Routes } from 'react-router-dom'
-import { appRoutes } from './components/constants/appRoutes'
+import { appRoutes } from './components/constants/appRoutes';
+import Container from './components/Container/Container'
+import { WELCOME_ROUTE } from './components/constants/routes'
+
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -19,14 +20,17 @@ const App: React.FC = () => {
   }, [dispatch])
   return isRefreshing ? (<p>Refreshing user...</p>) : (
     <Container >  
-      <div><AppBar/></div> 
+      <div>
+        <AppBar/>
+      </div> 
       <main>
         <Suspense fallback={<Loader/>}>
-        <Routes>
+    <Routes>
 {appRoutes.map(({path, element})=>(
-  <Route key={path} path={path} element={element}/>
-))}
-        </Routes>
+    <Route key={path} path={path} element={element}/>
+))} 
+    <Route path="*" element={WELCOME_ROUTE} />
+    </Routes>
         </Suspense>
         
         </main>   
