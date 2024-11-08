@@ -20,7 +20,7 @@ const getWaterTodayData = createAsyncThunk<UserWaterTodayResponse[], UserToken,{
     async (_, thunkAPI) => {
         try {
             
-            const response = await instance.get(`waterTodayData`);
+            const response = await instance.get(`/waterTodayData`);
             return response.data;
             
         } catch (error) {
@@ -32,7 +32,7 @@ const addWaterData = createAsyncThunk<UserWaterTodayResponse ,{rejectValue: stri
     "waterData/addWaterData",
     async (items, thunkAPI) => {
         try {
-            const response = await instance.post("waterData", items);
+            const response = await instance.post(`/waterData`, items);
             return response.data;
         } catch (error) {
             return handleAsyncError(error, thunkAPI);
@@ -43,7 +43,7 @@ const editWaterData = createAsyncThunk<UserWaterTodayResponse,UserWaterTodayResp
     "waterData/editWaterData",
     async (items, thunkAPI) => {
         try {
-            const response = await instance.post("waterData", items);
+            const response = await instance.post(`waterData`, items);
             return response.data;
         } catch (error) {
             return handleAsyncError(error, thunkAPI);
