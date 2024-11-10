@@ -1,18 +1,19 @@
 import Logo from "../Logo";
 import { AuthNav } from "../NavigationApi/AuthNav";
+import { useAuth } from "../../hooks/useNavigationHook";
 
 
 
 
-
-function Header() {
+const Header: React.FC=()=> {
+  const {isLoggedIn} = useAuth()
   return (
-    <>
+    <div className="">
       <nav className="navbar navbar-light bg-light d-flex justify-content-between align-items-center p-3">
-      <Logo/>
-      <AuthNav/>
+      <Logo isLoggedIn ={isLoggedIn} />
+      <AuthNav isLoggedIn={isLoggedIn} />
     </nav>
-    </>
+    </div>
   );
 }
 
