@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import PrivateRoute from "../Routes/PrivateRoute";
 import RestrictedRoute from "../Routes/RestrictedRoute";
-import { HOME_ROUTE,LOGIN_ROUTE,REGISTER_ROUTE, WELCOME_ROUTE, SignUpPage, WelcomePage, HomePage } from "./routes";
-import SignInPage from "../../pages/SignIn/SignInPage";
+import { HOME_ROUTE,LOGIN_ROUTE,REGISTER_ROUTE, WELCOME_ROUTE, SignUpPage,SignInPage, WelcomePage, HomePage } from "./routes";
+// import SignInPage from "../../pages/SignIn/SignInPage";
 
 
 
@@ -29,7 +29,8 @@ export const appRoutes: Route[] = [
     },
     {
         path: LOGIN_ROUTE,
-        element:(<RestrictedRoute redirectTo={HOME_ROUTE}><SignInPage/>
+        element:(<RestrictedRoute redirectTo={HOME_ROUTE}>
+            <SignInPage/>
             </RestrictedRoute>
           
         ),
