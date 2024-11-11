@@ -1,16 +1,17 @@
-import  { ReactNode } from 'react';
 
-interface LogOutProps {
-  children: ReactNode;
+
+interface LogOutModalProps {
+  onClose: () => void;
 }
 
-function LogOut({ children }: LogOutProps) {
+export const LogOutModal: React.FC<LogOutModalProps> = ({ onClose })=> {
   return (
     <>
       <h1>LogOut</h1>
-      {children}
+      <p>Are you sure you want to log out?</p>
+      <button onClick={onClose}>Cancel</button>
+      <button>Log Out</button>
     </>
   );
 }
 
-export default LogOut;
