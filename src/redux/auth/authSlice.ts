@@ -37,10 +37,13 @@ const authSlice = createSlice({
                 state.isLoggedIn = true;
             })
             .addCase(authOperations.logOut.fulfilled, (state) => {
-                state.userData = { name: '', email: '' };
+                state.userData = { name: '', email: '', gender: '', avatarURL: '', waterRate: 0, verify: ''  };
                 state.token = null;
                 state.isLoggedIn = false;
                 state.isRefreshing = false;
+            }).addCase(authOperations.uploadAvatarUser.fulfilled, (state, action) => {
+                state.userData.avatarURL = action.payload.avatarURL;
+                
             })
             .addCase(authOperations.fetchCurrentUser.pending, (state) => {
                 state.isRefreshing = true;
