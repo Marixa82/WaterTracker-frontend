@@ -7,6 +7,12 @@ export interface UserData  {
   waterRate?: number;
   verify?: string; 
 }
+export interface UserAvatar {
+  avatarURL: string;
+}
+export interface UploadAvatarRequest {
+  file: File; // фото, яке ви завантажуєте
+}
 export interface Credentials {
     email: string;
     password: string;
