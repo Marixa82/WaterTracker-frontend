@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserLogoModal from "./UserLogoModal";
+import {UserLogoModal} from "./UserLogoModal";
 
 interface UserLogoProps {
   userName?: string;
