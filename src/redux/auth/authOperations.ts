@@ -1,6 +1,6 @@
 import { handleAsyncError, instance, token } from "../Api/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Credentials, CurrentUser, SignInResponse } from "../types";
+import { Credentials, CurrentUser, SignInResponse, UploadAvatarRequest, UserAvatar } from "../types";
 
 
 //Registration user//
@@ -55,9 +55,24 @@ const fetchCurrentUser = createAsyncThunk<CurrentUser,void,{rejectValue: string;
         
 }
 })
+const uploadAvatarUser = createAsyncThunk<UserAvatar, UploadAvatarRequest, {rejectValue: string;}>('user/avatar', async ({ file }, thunkAPI) =>{
+    try {
+        const formData = new FormData();
+      formData.append('avatar', file); // додаємо файл до FormData
+      const { data } = await instance.patch('api/user/avatar', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // потрібен для завантаження файлів
+        },
+      });
+        
+        return data;
+        }catch (error) {
+            return handleAsyncError(error, thunkAPI);   
+    }
+        }
+)
 
-
-const authOperations = { signUp, signIn, logOut, fetchCurrentUser };
+const authOperations = { signUp, signIn, logOut, fetchCurrentUser, uploadAvatarUser };
 export default authOperations;
 
 // const response = await instance.post('api/auth/signIn', credentials);
