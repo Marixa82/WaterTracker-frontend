@@ -51,6 +51,38 @@ body {
   height: 100vh;
   margin: 0;
 }
+/* Бордер для всієї групи при фокусі */
+/* .input-group:focus-within {
+  border: 1px solid #86b7fe !important;
+  border-radius: 0.375rem; 
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); 
+} */
+.form-control-password:focus{
+  box-shadow: none;
+  border-color:transparent;
+}
+
+
+/* Зняття бордера-фокуса з окремих елементів */
+
+ .input-group-text:focus {
+  box-shadow: none; /* Прибираємо стандартну тінь */
+  outline: none; /* Забираємо зовнішнє обрамлення */
+}
+
+/* Загальний бордер для всієї групи при фокусі */
+.input-group:focus-within {
+  border: 1px solid #86b7fe; /* Колір бордера при фокусі */
+  border-radius: 0.375rem; /* Округлені кути */
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); /* Тінь для фокуса */
+}
+
+/* Зняття внутрішніх бордерів між елементами */
+.input-group-text {
+  border-left: none; /* Прибираємо бордер між кнопкою та інпутом */
+}
+
+
 
 /* h1 {
   font-size: 3.2em;
