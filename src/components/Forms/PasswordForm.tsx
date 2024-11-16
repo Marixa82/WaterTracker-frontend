@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 const PasswordForm = () => {
   // Стан для контролю видимості паролів
   const [showPassword, setShowPassword] = useState(false);
@@ -11,22 +12,22 @@ const PasswordForm = () => {
 
   return (
     <form action="#">
-      <div className="mb-3">
+      <div className="mb-3 ">
         <label htmlFor="currentPassword" className="form-label">Current Password</label>
         <div className="input-group">
       <input
         type={showPassword ? 'text' : 'password'}
-        className="form-control border-end-0"
+        className="form-control form-control-password border-end-0"
         id="currentPassword"
         placeholder="Enter current password"
         required
+        
       />
       <button
-        type="button"
-        className="btn border border-start-0"
-        onClick={togglePasswordVisibility}
-        aria-label="Toggle password visibility"
-      >
+    className="btn border border-start-0"
+    onClick={togglePasswordVisibility}
+    aria-label="Toggle password visibility"
+  >
         {showPassword ? (
           <i className="bi bi-eye-slash-fill"></i> // Bootstrap іконка для приховування
         ) : (
@@ -41,7 +42,7 @@ const PasswordForm = () => {
         <div className="input-group">
           <input
             type={showPassword ? 'text' : 'password'}
-            className="form-control border-end-0"
+            className="form-control form-control-password border-end-0"
             id="newPassword"
             placeholder="Enter new password"
             required
@@ -66,7 +67,7 @@ const PasswordForm = () => {
         <div className="input-group">
           <input
             type={showPassword ? 'text' : 'password'}
-            className="form-control border-end-0"
+            className="form-control form-control-password border-end-0"
             id="repeatPassword"
             placeholder="Repeat new password"
             required
