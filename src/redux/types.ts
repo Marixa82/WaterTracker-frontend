@@ -2,6 +2,7 @@
 export interface UserData  {
   email: string;
   name: string;
+  password?: string;
   gender?: string;
   avatarURL?: string;
   waterRate?: number;
