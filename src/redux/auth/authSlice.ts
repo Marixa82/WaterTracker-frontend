@@ -36,6 +36,10 @@ const authSlice = createSlice({
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
             })
+            .addCase(authOperations.updateUserData.fulfilled, (state, action) => {
+                state.isLoggedIn = false;
+                state.userData = { ...state.userData, ...action.payload }; 
+              })
             .addCase(authOperations.logOut.fulfilled, (state) => {
                 state.userData = { name: '', email: '', gender: '', avatarURL: '', waterRate: 0, verify: ''  };
                 state.token = null;
