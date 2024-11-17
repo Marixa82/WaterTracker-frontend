@@ -31,7 +31,7 @@ const UserAvatarDisplay: React.FC<UserAvatarDisplayProps> = ({ avatarUrl,avatarT
 
     {/* Права частина: Кнопка завантаження */}
     <div >
-      <UploadUserPhotoButton onUpload={onUploadComplete} />
+      <UploadUserPhotoButton onUpload={onUploadComplete} currentAvatarUrl={avatarUrl}/>
     </div>
   </div>
   );
