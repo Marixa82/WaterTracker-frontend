@@ -3,7 +3,7 @@ import {PasswordForm} from "../Forms/PasswordForm";
 import { useAppDispatch } from "../../hooks/hook";
 import { UploadUserPhotoButton } from "./OpenButtonModals";
 import { authOperations } from "../../redux/auth";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import { UserData } from "../../redux/types";
 
@@ -56,7 +56,18 @@ export const Setting: React.FC<SettingProps> = ({ initialUserData, onClose }) =>
       setLoading(false);
     }
   };
-
+// Закриття модалки по натисканню Escape
+useEffect(() => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
+  window.addEventListener('keydown', handleKeyDown);
+  return () => {
+    window.removeEventListener('keydown', handleKeyDown);
+  };
+}, [onClose]);
   return (
     <div className="modal show d-block" tabIndex={-1} onClick={onClose} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
     <div className="modal-dialog modal-dialog-centered" onClick={(e) => e.stopPropagation()}>
