@@ -3,12 +3,14 @@ import {Setting} from "./Setting";
 import { LogOutModal } from "./LogOut";
 import { LogoutButton, OpenSettingButton } from "./OpenButtonModals";
 import {ModalWrapper} from "./ModalWrapper";
+import { UserData } from "../../redux/types";
 
 interface UserLogoModalProps {
   onClose: () => void;
+  userData: UserData;
 }
 
-export const UserLogoModal: React.FC<UserLogoModalProps> = ({ onClose }) => {
+export const UserLogoModal: React.FC<UserLogoModalProps> = ({ onClose, userData}) => {
 
   const [isSettingOpen, setIsSettingOpen] = useState(false);
   const [isLogoutOpen, setIsLogoutOpen] = useState(false);
@@ -55,7 +57,10 @@ export const UserLogoModal: React.FC<UserLogoModalProps> = ({ onClose }) => {
 
       {/* Відкриття модалок */}
       <ModalWrapper isOpen={isSettingOpen} onClose={handleModalClose}>
-        <Setting onClose={handleModalClose} />
+      <Setting 
+          onClose={handleModalClose}
+          initialUserData={userData}
+        />
       </ModalWrapper>
 
       <ModalWrapper isOpen={isLogoutOpen} onClose={handleModalClose}>
