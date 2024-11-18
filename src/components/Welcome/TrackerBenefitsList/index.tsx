@@ -1,6 +1,6 @@
 
 // import { Container } from 'react-bootstrap';
-import TrackerBenefits from '../TrackerBenefits';
+import {TrackerBenefits} from '../TrackerBenefits';
 
 
 
