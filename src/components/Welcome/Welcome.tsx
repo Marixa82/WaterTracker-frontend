@@ -1,4 +1,4 @@
-
+import './Welcome.css'
 
 interface WelcomeProps {
   trackerBenefitsList: JSX.Element;
@@ -7,7 +7,7 @@ interface WelcomeProps {
 
 function Welcome({ trackerBenefitsList, whyDrinkWater }: WelcomeProps) {
   return (
-    <div>
+    <div className='welcome-container py-5'>
       < div className="row">
         <div className="col-12 col-md-6">
           {trackerBenefitsList}
