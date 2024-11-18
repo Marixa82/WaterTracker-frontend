@@ -1,0 +1,78 @@
+.welcome-container {
+    padding: 5rem 0;
+    max-width: 1014px;
+    height: 366px;
+  }
+  
+  /* Для кожного елемента в колонках */
+  .welcome-item {
+    max-width: 1014px;
+    height: 366px;
+    margin: 0 auto;
+    background-color: #f8f9fa; /* Легкий фон для відокремлення елементів */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тінь для елементів */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  /* Додаткові стилі для мобільних пристроїв */
+  @media (max-width: 767px) {
+    .welcome-item {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+ /* Основний контейнер для TrackerBenefits */
+.tracker-container {
+    width: 439px; /* Фіксована ширина */
+    height: 366px; /* Фіксована висота */
+    padding: 1.5rem; /* Відступи для внутрішнього контенту */
+    background-color: #f8f9fa; /* Світлий фон */
+    border-radius: 8px; /* Округлені кути */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь для елементів */
+    overflow: hidden; /* Захист від прокручування */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Заголовок для Tracker Benefits */
+  .tracker-container h1 {
+    font-size: 1.25rem; /* Зменшений розмір заголовка */
+    margin-bottom: 1rem;
+  }
+  
+  .tracker-container h2 {
+    font-size: 1.1rem; /* Зменшений розмір заголовка */
+    margin-bottom: 1rem;
+  }
+  
+  /* Підпункти у списку */
+  .tracker-container ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem; /* Відступ між списком і кнопкою */
+  }
+  
+  .tracker-container ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem; /* Відстань між пунктами */
+  }
+  
+  .tracker-container ul li p {
+    margin: 0;
+  }
+  
+  .tracker-container ul li .ms-2 {
+    margin-left: 0.5rem;
+  }
+  
+  /* Стилі для кнопки */
+  .tracker-container .btn {
+    font-size: 1rem; /* Зменшений розмір шрифту для кнопки */
+    padding: 0.75rem; /* Оптимізовано відступи */
+  }
