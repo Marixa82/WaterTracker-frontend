@@ -1,21 +1,17 @@
 .welcome-container {
-    padding: 5rem 0;
+    
     max-width: 1014px;
-    height: 366px;
+    
   }
   
   /* Для кожного елемента в колонках */
   .welcome-item {
-    max-width: 1014px;
+ 
     height: 366px;
     margin: 0 auto;
-    background-color: #f8f9fa; /* Легкий фон для відокремлення елементів */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тінь для елементів */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
   }
   
   /* Додаткові стилі для мобільних пристроїв */
@@ -29,10 +25,6 @@
 .tracker-container {
     width: 439px; /* Фіксована ширина */
     height: 366px; /* Фіксована висота */
-    padding: 1.5rem; /* Відступи для внутрішнього контенту */
-    background-color: #f8f9fa; /* Світлий фон */
-    border-radius: 8px; /* Округлені кути */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь для елементів */
     overflow: hidden; /* Захист від прокручування */
     display: flex;
     flex-direction: column;
@@ -75,4 +67,60 @@
   .tracker-container .btn {
     font-size: 1rem; /* Зменшений розмір шрифту для кнопки */
     padding: 0.75rem; /* Оптимізовано відступи */
+  }
+  /* .why-drink-water {
+    
+  } */
+  .why-drink-container{
+    max-width: 494px; /* Задайте ширину вашого компонента */
+    max-height: 332px; /* Задайте висоту */
+    background-color: #f8f9fa; /* Світлий фон */
+    border-radius: 8px; /* Округлені кути */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь для елементів */
+    overflow: hidden; /* Захист від прокручування */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 24px;
+  };
+  .why-drink-water-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 400;
+    
+  }
+  /* .why-drink-water{
+    padding: 32px 24px;
+  } */
+  /* Контейнер для пунктів списку */
+  .list-container {
+    height: 236px;
+    width: 446px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Відстань між пунктами */
+  }
+  
+  /* Окремий пункт списку */
+  .list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Відстань між точкою і текстом */
+  }
+  
+  /* Синя точка */
+  .dot {
+    
+    width: 5px;
+    height: 5px;
+    background-color: #007bff; /* Синій колір Bootstrap */
+    border-radius: 50%;
+    flex-shrink: 0; /* Запобігає змінам розміру */
+  }
+  
+  /* Текст списку */
+  .list-item p {
+    margin: 0;
+    /* font-size: 1rem; */
+    color: #343a40; /* Темний текст */
   }
