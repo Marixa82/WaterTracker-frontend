@@ -5,7 +5,7 @@ import SignForm from "../../components/SignIn/SignIn";
 const SignInPage: React.FC = () =>  {
   return (
     <>
-      <h1>SignInPage</h1>
+      <h1 className="visually-hidden">SignInPage</h1>
       
     <SignForm/>
     </>
