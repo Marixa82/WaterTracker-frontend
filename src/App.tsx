@@ -7,8 +7,10 @@ import { AppBar } from './components/NavigationApi/AppBar'
 import Loader from './components/Loader/Loader'
 import { Route, Routes } from 'react-router-dom'
 import { appRoutes } from './components/constants/appRoutes';
-import Container from './components/Container/Container'
+import { Container } from 'react-bootstrap'
 import { WELCOME_ROUTE } from './components/constants/routes'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { PageBackground } from './components'
 
 
 const App: React.FC = () => {
@@ -18,25 +20,41 @@ const App: React.FC = () => {
   useEffect(()=>{
     dispatch(authOperations.fetchCurrentUser())
   }, [dispatch])
+  // const getPageBackground = () => {
+  //   switch (location.pathname) {
+  //     case '/welcome':
+  //       return 'welcome';
+  //     case '/signin':
+  //       return 'signin';
+  //     case '/signup':
+  //       return 'signup';
+  //     case '/home':
+  //       return 'home';
+  //     default:
+  //       return 'other';
+  //   }
+  // };
   return isRefreshing ? (<p>Refreshing user...</p>) : (
-    <Container >  
-      <div>
-        <AppBar/>
-      </div> 
-      <main>
-        <Suspense fallback={<Loader/>}>
-    <Routes>
-{appRoutes.map(({path, element})=>(
-    <Route key={path} path={path} element={element}/>
-))} 
-    <Route path="*" element={WELCOME_ROUTE} />
-    </Routes>
-        </Suspense>
+    <PageBackground >
+      <Container fluid className="d-flex flex-column" style={{ minHeight: '100vh' }} >  
+        <div>
+          <AppBar/>
+        </div> 
+        <main className="flex-grow-1 d-flex justify-content-center">
+          <Suspense fallback={<Loader/>}>
+      <Routes>
+  {appRoutes.map(({path, element})=>(
+      <Route key={path} path={path} element={element}/>
+  ))} 
+      <Route path="*" element={WELCOME_ROUTE} />
+      </Routes>
+          </Suspense>
+          
+          </main>   
+       
         
-        </main>   
-     
-      
-    </Container>
+      </Container>
+    </PageBackground>
   )
 }
 
