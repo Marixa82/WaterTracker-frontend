@@ -2,10 +2,10 @@ import SignUp from "../../components/SignUp/SignUp";
 
 function SignUpPage() {
   return (
-    <>
-      <h1>SignUpPage</h1>
+    <div>
+      <h1 className="visually-hidden">SignUpPage</h1>
       <SignUp/>
-    </>
+    </div>
   );
 }
 
