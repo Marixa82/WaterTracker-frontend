@@ -9,9 +9,9 @@
  
     height: 366px;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex;
+    justify-content: center; */
+    align-items: flex-end;
   }
   
   /* Додаткові стилі для мобільних пристроїв */
@@ -32,8 +32,10 @@
   }
   
   /* Заголовок для Tracker Benefits */
-  .tracker-container h1 {
-    font-size: 1.25rem; /* Зменшений розмір заголовка */
+  .display-7{
+    font-size: 36px;
+    font-family: 'Roboto'; 
+    /* line-height: 1.17; */
     margin-bottom: 1rem;
   }
   
@@ -46,7 +48,7 @@
   .tracker-container ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 1.5rem; /* Відступ між списком і кнопкою */
+    
   }
   
   .tracker-container ul li {
@@ -65,14 +67,16 @@
   
   /* Стилі для кнопки */
   .tracker-container .btn {
-    font-size: 1rem; /* Зменшений розмір шрифту для кнопки */
-    padding: 0.75rem; /* Оптимізовано відступи */
+    font-size: 18px; /* Зменшений розмір шрифту для кнопки */
+    padding: 10px 30px; /* Оптимізовано відступи */
+    width: 384px;
   }
   /* .why-drink-water {
     
   } */
   .why-drink-container{
-    max-width: 494px; /* Задайте ширину вашого компонента */
+    box-sizing: content-box;
+    width: 494px; /* Задайте ширину вашого компонента */
     max-height: 332px; /* Задайте висоту */
     background-color: #f8f9fa; /* Світлий фон */
     border-radius: 8px; /* Округлені кути */
@@ -80,12 +84,11 @@
     overflow: hidden; /* Захист від прокручування */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 32px 24px;
+    padding: 16px 24px;
   };
-  .why-drink-water-title {
+  .why-drink-water-title h3{
     font-size: 18px;
-    margin-bottom: 12px;
+
     font-weight: 400;
     
   }
@@ -94,11 +97,13 @@
   } */
   /* Контейнер для пунктів списку */
   .list-container {
-    height: 236px;
-    width: 446px;
+    margin-top: 12px;
+    
+    /* height: 236px;
+    width: 446px; */
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Відстань між пунктами */
+    gap: 16px; 
   }
   
   /* Окремий пункт списку */
@@ -106,6 +111,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem; /* Відстань між точкою і текстом */
+    /* margin-bottom: 16px; */
   }
   
   /* Синя точка */
