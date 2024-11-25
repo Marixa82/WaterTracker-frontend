@@ -6,9 +6,9 @@ import './Welcome.css'
 
 export const TrackerBenefits: React.FC = () => {
   return (
-    <div className="tracker-container py-4">
-      <div className="mb-3">
-        <h1 className="display-5">Water Consumption Tracker</h1>
+    <div className="tracker-container">
+      <div >
+        <h1 className="display-7">Water Consumption Tracker</h1>
         <p className="lead">Record daily water intake and track</p>
       </div>
 
@@ -33,7 +33,7 @@ export const TrackerBenefits: React.FC = () => {
 
       {/* Кнопка для спроби трекера */}
       <NavLink to={REGISTER_ROUTE} className="auth-nav-link">
-        <button type="button" className="btn btn-primary btn-lg w-100">Try tracker</button>
+        <button type="button" className="btn btn-primary btn-lg">Try tracker</button>
       </NavLink>
     </div>
   );
