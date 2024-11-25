@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../../hooks/hook';
 import { authOperations } from '../../../redux/auth';
-
+import { Input, FormViews, Button } from '../../Forms/Formik/Formik.styled';
 
 interface FormData {
   email: string;
@@ -24,19 +24,22 @@ const SignForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <FormViews onSubmit={handleSubmit} autoComplete="off">
+      <h2>Sign In</h2>
       <label>
+        <p>Enter your email</p>
         <span>
-          <input type="email" name='userEmail' placeholder="Enter your email..." required />
+          <Input type="email" name='userEmail' placeholder="Enter your email..." required />
         </span>
       </label>
       <label>
+        <p>Enter your password</p>
         <span>
-          <input type="password" name='userPassword' placeholder="Enter your password..." required minLength={7} />
+          <Input type="password" name='userPassword' placeholder="Enter your password..." required minLength={7} />
         </span>
       </label>
-      <button type="submit">Login</button>
-    </form>
+      <Button type="submit">Login</Button>
+    </FormViews>
   );
 };
 
