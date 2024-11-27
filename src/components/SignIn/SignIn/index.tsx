@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/hook';
 import { authOperations } from '../../../redux/auth';
-import { Input, FormViews, Button } from '../../Forms/Formik/Formik.styled';
+import { Input, FormViews, Button, ButtonSign } from '../../Forms/Formik/Formik.styled';
+import { REGISTER_ROUTE } from '../../constants/routes';
 
 interface FormData {
   email: string;
   password: string;
+  
 }
 const SignForm: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,16 +32,21 @@ const SignForm: React.FC = () => {
       <label>
         <p>Enter your email</p>
         <span>
-          <Input type="email" name='userEmail' placeholder="Enter your email..." required />
+          <Input type="email" name='userEmail' placeholder="E-mail" required />
         </span>
       </label>
       <label>
         <p>Enter your password</p>
         <span>
-          <Input type="password" name='userPassword' placeholder="Enter your password..." required minLength={7} />
+          <Input type="password" name='userPassword' placeholder="Password" required minLength={7} />
         </span>
       </label>
-      <Button type="submit">Login</Button>
+      
+      <Button type="submit">Sign In</Button>
+      <div>
+        <Link to={REGISTER_ROUTE}>
+        <ButtonSign type='button'>Sign up</ButtonSign></Link>
+      </div>
     </FormViews>
   );
 };
