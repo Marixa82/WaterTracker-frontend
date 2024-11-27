@@ -1,12 +1,15 @@
 import React, {FormEvent} from "react";
 import { useAppDispatch } from "../../../hooks/hook";
 import { authOperations } from '../../../redux/auth';
-import { Input, Button, FormViews, H2 } from "../../Forms/Formik/Formik.styled";
+import { Input, Button, FormViews, H2, ButtonSign } from "../../Forms/Formik/Formik.styled";
+import { Link } from "react-router-dom";
+import { LOGIN_ROUTE } from "../../constants/routes";
 
 interface FormElements extends HTMLFormControlsCollection {
-    userName: HTMLInputElement;
+    
     userEmail: HTMLInputElement;
     userPassword: HTMLInputElement;
+    repeatUserPassword: HTMLInputElement;
   }
   
   interface FormEventExtended extends FormEvent<HTMLFormElement> {
@@ -20,41 +23,29 @@ interface FormElements extends HTMLFormControlsCollection {
     const handleSubmit = (e: FormEventExtended): void => {
         e.preventDefault();
         const form = e.currentTarget;
+        const password = form.elements.userPassword.value;
+    const repeatPassword = form.elements.repeatUserPassword.value;
+
+    if (password !== repeatPassword) {
+      alert("Passwords do not match");
+      return;
+    }
         dispatch(authOperations.signUp({
-          name: form.elements.userName.value,
           email: form.elements.userEmail.value,
-          password: form.elements.userPassword.value,
+          password: password,
         }));
         form.reset();
       };
-    // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     const form = e.currentTarget;
-    //     const name = (form.elements.namedItem('userName') as HTMLInputElement).value;
-    //     const email = (form.elements.namedItem('userEmail') as HTMLInputElement).value;
-    //     const password = (form.elements.namedItem('userPassword') as HTMLInputElement).value;
-
-    //     dispatch(authOperations.signUp({
-    //         name,
-    //         email,
-    //         password,
-    //     }));
-    // }
+    
     return (
         <div>
             
             <FormViews onSubmit={handleSubmit} autoComplete="off">
             <H2>Sign up</H2>
-                <label >
-                    <p>Enter your name</p>
-                    <span>
-                        <Input type="text" name="userName" placeholder="Enter your name..." required />
-                    </span>
-                </label>
                 <label>
                     <p>Enter your email</p>
                     <span>
-                        <Input type="email" name="userEmail" placeholder="Enter your email..." required />
+                        <Input type="email" name="userEmail" placeholder="E-mail" required />
                     </span>
                 </label>
                 <label>
@@ -64,7 +55,7 @@ interface FormElements extends HTMLFormControlsCollection {
                 type="password"
                 name="userPassword"
                 required
-                placeholder="Enter your password..."
+                placeholder="Password"
                 minLength={6}
                 maxLength={12}
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
@@ -72,7 +63,27 @@ interface FormElements extends HTMLFormControlsCollection {
               />
                     </span>
                 </label>
-                <Button type="submit" >Register</Button>
+                <label>
+                    <p>Repeat password</p>
+                    <span>
+                    <Input
+                type="password"
+                name="repeatUserPassword"
+                required
+                placeholder="Password"
+                minLength={6}
+                maxLength={12}
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number."
+              />
+                    </span>
+                </label>
+                <Button type="submit" >Sign Up</Button>
+                <div>
+                  <Link to={LOGIN_ROUTE}>
+                    <ButtonSign type='button'>Sign in</ButtonSign>
+                  </Link>
+                </div>
             </FormViews>
         </div>
     );
