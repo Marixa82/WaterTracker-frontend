@@ -10,7 +10,7 @@ interface PasswordFormProps {
 }
 export const PasswordForm: React.FC<PasswordFormProps> = ({ passwordData, onFieldUpdate }) => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [passwordMatchError, setPasswordMatchError] = useState(false);
   // Функція для переключення видимості паролів
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
@@ -18,7 +18,13 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({ passwordData, onFiel
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     onFieldUpdate(id as keyof PasswordFormProps['passwordData'], value);
+
+    // Перевірка відповідності паролів
+  if (id === 'repeatPassword' || id === 'newPassword') {
+    setPasswordMatchError(passwordData.newPassword !== value);
+  }
   };
+  
 
   return (
     <form action="#">
@@ -100,6 +106,9 @@ export const PasswordForm: React.FC<PasswordFormProps> = ({ passwordData, onFiel
         )}
           </button>
         </div>
+        {passwordMatchError && (
+          <div className="invalid-feedback d-block">Passwords do not match</div>
+        )}
       </div>
     </form>
   );
