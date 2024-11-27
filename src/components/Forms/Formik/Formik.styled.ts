@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Form } from 'formik';
 
+
 const FormField = styled(Form)`
 text-align: center;
  width: 100%;
@@ -16,8 +17,9 @@ gap:10px;
 /* background-color: rgba(0, 0, 0, 0.3); */
 `
 const FormViews = styled.form`
-text-align: center;
+text-align: start;
 width:384px;
+height: 404px;
 /* border: 1px solid black; */
 margin-left:20px;
 padding:20px;
@@ -30,9 +32,10 @@ gap:20px;
 
 
 const Button = styled.button`
-  background-color: #333333;
-  margin: 10px;
-  padding: 10px 25px;
+  background-color: var(--color-blue);
+  width: 100%;
+  height: 44px;
+  padding: 10px 30px;
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
@@ -41,12 +44,13 @@ const Button = styled.button`
   border-radius: 10px;
   display: block;
 
-  &:hover {
-    background-color:#e9d362;
-    color: #333333;
-    text-decoration: none;
-  }
+  
 `;
+const ButtonSign = styled.button`
+color: var(--color-blue);
+font-size: 16px;
+`
+
 
 const Div = styled.div`
 display: flex;
@@ -74,24 +78,24 @@ color: #e9d362;
 
 const H2 = styled.h2`
 font-weight: 400;
+font-size: 26px;
 margin: 10px 0;
-color: #F5FFFA;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+color: var(--color-black);
+
 
   `
 
 const Input = styled.input`
- font-size: 10px;
-width:200px;
-height:20px;
-border-radius: 5px;
-border: none;
+ font-size: 16px;
+width:100%;
+height:44px;
+border-radius: 6px;
+border: 1px solid var(--color-light-blue);
 outline:none;
 
-/* &:hover {
-  background-color: #e9d362;
-    color: #333333;
-  } */
+&::placeholder{
+  color:var(--color-blue-secondary);
+}
  `
 const Span = styled.span`
  margin-top: 15px;
@@ -111,4 +115,4 @@ const Error = styled.div`
 
  `
 
-export { Div, Button, FormViews, Input, H2, P, Span, Error, FormField }
+export { Div, Button, FormViews, Input, H2, P, Span, Error, FormField, ButtonSign }
