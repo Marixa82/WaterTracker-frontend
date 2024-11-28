@@ -49,6 +49,7 @@ const Button = styled.button`
 const ButtonSign = styled.button`
 color: var(--color-blue);
 font-size: 16px;
+background-color: transparent;
 `
 
 
@@ -97,6 +98,25 @@ outline:none;
   color:var(--color-blue-secondary);
 }
  `
+ const InputWrapper = styled.span`
+ position: relative;
+ display: inline-block;
+ width: 100%;
+
+ input {
+   width: 100%;
+   padding-right: 40px; /* Простір для іконки */
+   box-sizing: border-box;
+ }
+
+ svg {
+   position: absolute;
+   right: 10px; /* Відступ від правого краю */
+   top: 50%;
+   transform: translateY(-50%);
+   pointer-events: none; /* Іконка буде неактивною для кліків */
+ }
+`;
 const Span = styled.span`
  margin-top: 15px;
  font-weight: 500;
@@ -115,4 +135,4 @@ const Error = styled.div`
 
  `
 
-export { Div, Button, FormViews, Input, H2, P, Span, Error, FormField, ButtonSign }
+export { Div, Button, FormViews, Input, H2, P, Span, Error, FormField, ButtonSign, InputWrapper }
