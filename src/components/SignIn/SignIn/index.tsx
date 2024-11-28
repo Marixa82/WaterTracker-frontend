@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/hook';
 import { authOperations } from '../../../redux/auth';
-import { Input, FormViews, Button, ButtonSign } from '../../Forms/Formik/Formik.styled';
+import { Input, FormViews, Button, ButtonSign, H2, InputWrapper } from '../../Forms/Formik/Formik.styled';
 import { REGISTER_ROUTE } from '../../constants/routes';
+import Icon from '../../Icon';
 
 interface FormData {
   email: string;
@@ -14,7 +15,6 @@ const SignForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const form = e.currentTarget;
     const email = (e.currentTarget.elements.namedItem('userEmail') as HTMLInputElement).value;
     const password = (e.currentTarget.elements.namedItem('userPassword') as HTMLInputElement).value;
 
@@ -28,18 +28,20 @@ const SignForm: React.FC = () => {
 
   return (
     <FormViews onSubmit={handleSubmit} autoComplete="off">
-      <h2>Sign In</h2>
+      <H2>Sign In</H2>
       <label>
         <p>Enter your email</p>
         <span>
           <Input type="email" name='userEmail' placeholder="E-mail" required />
+          
         </span>
       </label>
       <label>
         <p>Enter your password</p>
-        <span>
+        <InputWrapper>
           <Input type="password" name='userPassword' placeholder="Password" required minLength={7} />
-        </span>
+          <Icon iconId="icon-eye-slash" width={16} height={16} />
+        </InputWrapper>
       </label>
       
       <Button type="submit">Sign In</Button>
