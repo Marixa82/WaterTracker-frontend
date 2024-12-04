@@ -1,12 +1,16 @@
 
 export interface UserData  {
-  email: string;
-  name: string;
+  email?: string;
+  name?: string;
   password?: string;
   gender?: string;
   avatarURL?: string;
   waterRate?: number;
-  verify?: string; 
+  verify?: string;
+  weight?: number;
+  activityTime?: number;
+  calculatedWater?: number;
+  plannedWater?: number; 
 }
 export interface UserAvatar {
   avatarURL: string;
@@ -62,3 +66,10 @@ export interface UserWaterTodayResponse {
   export interface WaterTodayData {
     waterList: UserWaterTodayResponse[]; 
 };
+export interface SaveWaterDataPayload {
+ 
+  weight: number;
+  activityTime: number;
+  calculatedWater: number;
+  plannedWater: number;
+}
