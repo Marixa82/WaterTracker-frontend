@@ -48,7 +48,12 @@ const authSlice = createSlice({
             }).addCase(authOperations.uploadAvatarUser.fulfilled, (state, action) => {
                 state.userData.avatarURL = action.payload.avatarURL;
                 
-            })
+            }).addCase(authOperations.waterRate.pending, (state) => {
+                state.isLoggedIn = true;
+              }).addCase(authOperations.waterRate.fulfilled, (state, action) => {
+                state.userData.waterRate = action.payload.waterRate;
+                state.isLoggedIn = false;
+              })
             .addCase(authOperations.fetchCurrentUser.pending, (state) => {
                 state.isRefreshing = true;
             })
