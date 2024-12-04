@@ -1,6 +1,6 @@
 import { handleAsyncError, instance, token } from "../Api/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Credentials, CurrentUser, SignInResponse, UploadAvatarRequest, UserAvatar, UserData } from "../types";
+import { Credentials, CurrentUser, SignInResponse, UploadAvatarRequest, UserAvatar, UserData,  } from "../types";
 
 
 //Registration user//
@@ -82,8 +82,20 @@ const uploadAvatarUser = createAsyncThunk<UserAvatar, UploadAvatarRequest, {reje
     }
         }
 )
+export const waterRate = createAsyncThunk<UserData, UserData,{ rejectValue: string } >(
+  'auth/waterRate',
+  async (data, thunkAPI ) => {
+    try {
+      const response = await instance.post('/save-water-data', data);
+      return response.data; // Повертає дані у разі успішного запиту
+    } catch (error) {
+      return handleAsyncError(error, thunkAPI);
+    }
+  }
+);
 
-const authOperations = { signUp, signIn, logOut, fetchCurrentUser, uploadAvatarUser, updateUserData };
+
+const authOperations = { signUp, signIn, logOut, fetchCurrentUser, uploadAvatarUser, updateUserData, waterRate };
 export default authOperations;
 
 // const response = await instance.post('api/auth/signIn', credentials);
